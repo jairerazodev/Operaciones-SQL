@@ -1,5 +1,5 @@
 # Practica Operaciones-SQL
-## Operaciones en SQL
+### Operaciones en SQL
 
 hola esta practica muestra una ruta sugerida para aprender la sintaxis básica de SQL. A continuación, te presento un resumen del proceso en pasos sencillos:
 
