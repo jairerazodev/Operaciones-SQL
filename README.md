@@ -1,5 +1,5 @@
 # Practica Operaciones-SQL
-### Operaciones en SQL
+### Operaciones en SQL con un enfoque de optimización y rendimiento
 
 hola esta practica muestra una ruta sugerida para aprender la sintaxis básica de SQL. A continuación, te presento un resumen del proceso en pasos sencillos:
 
@@ -164,4 +164,19 @@ En general, la manera adecuada de abordar este tipo de problemas de integridad d
 Este componente hace uso de la librería de cliente HTTP Axios para realizar solicitudes HTTP a una API que se encarga de manejar las transacciones en la base de datos. En este ejemplo, se envían tres solicitudes HTTP a la API: una para iniciar la transacción, otra para confirmarla y otra para cancelarla en caso de fallo.
 
 Es importante tener en cuenta que este es sólo un ejemplo y que la implementación final podría variar según tus necesidades específicas. Por ejemplo, podrías utilizar una librería diferente para realizar solicitudes HTTP o podrías utilizar un enfoque diferente para manejar las transacciones.
+
+#### Buenas Prácticas = mejor rendimiento en consultas y transcciones
+Aquí te presento algunas recomendaciones generales que pueden ayudar a mejorar el rendimiento de las transacciones en SQL:
+
+Utiliza índices adecuadamente: Los índices son estructuras de datos que se utilizan para acelerar la búsqueda de registros en las tablas. Utilizar índices adecuadamente puede mejorar significativamente el rendimiento de las consultas y, por lo tanto, también el rendimiento de las transacciones que involucren estas consultas.
+
+Utiliza un motor de base de datos adecuado: Existen diferentes motores de base de datos que tienen características y rendimiento diferentes. Es importante elegir un motor de base de datos que se adapte a las necesidades de tu aplicación y que ofrezca un buen rendimiento en el escenario de uso previsto.
+
+Utiliza una arquitectura adecuada: Dependiendo del tamaño y la complejidad de la base de datos y del uso previsto, puede ser beneficioso utilizar una arquitectura distribuida, como una base de datos en cluster, para mejorar el rendimiento y la escalabilidad.
+
+Utiliza buenas prácticas de diseño de base de datos: Utilizar buenas prácticas de diseño de base de datos, como la normalización de las tablas y el uso adecuado de claves primarias y foráneas, puede mejorar el rendimiento de las consultas.
+
+Utiliza transacciones sólo cuando sean necesarias: Las transacciones son una herramienta muy útil para garantizar la integridad de los datos, pero también pueden afectar el rendimiento si se utilizan de manera inadecuada. Por lo tanto, es importante utilizarlas de manera adecuada y sólo cuando sean necesarias.
+
+Espero que estas recomendaciones te ayuden a mejorar el rendimiento de las transacciones en SQL.
 
