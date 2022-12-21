@@ -17,7 +17,7 @@ Hola! Me alegra poder ayudarte a aprender la sintaxis básica de SQL. A continua
 
 A continuación, te presento un ejemplo de script SQL con comentarios que te ayudarán a entender cada proceso:
 
-##**UT code**
+## **UT code**
 `-- Crea una tabla llamada "clientes" con dos columnas: "nombre" y "ciudad"
 CREATE TABLE clientes (nombre VARCHAR(50), ciudad VARCHAR(50));
 
