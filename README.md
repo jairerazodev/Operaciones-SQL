@@ -5,15 +5,15 @@ hola de nuevo, resume el proceso para en pasos sencillo lograr dominar la sintax
 
 Hola! Me alegra poder ayudarte a aprender la sintaxis básica de SQL. A continuación, te presento un resumen del proceso en pasos sencillos:
 
-Familiarizarse con los conceptos básicos de SQL: antes de empezar a escribir cualquier código, es importante entender algunos conceptos clave de SQL, como tablas, filas, columnas y consultas.
++ Familiarizarse con los conceptos básicos de SQL: antes de empezar a escribir cualquier código, es importante entender algunos conceptos clave de SQL, como tablas, filas, columnas y consultas.
 
-Aprender a crear tablas y a insertar datos: una vez que comprendes los conceptos básicos, puedes empezar a crear tus propias tablas y a insertar datos en ellas.
++ Aprender a crear tablas y a insertar datos: una vez que comprendes los conceptos básicos, puedes empezar a crear tus propias tablas y a insertar datos en ellas.
 
-Aprender a seleccionar y filtrar datos: una vez que tienes datos en tus tablas, puedes utilizar consultas SQL para seleccionar y filtrar los datos que deseas ver.
++ Aprender a seleccionar y filtrar datos: una vez que tienes datos en tus tablas, puedes utilizar consultas SQL para seleccionar y filtrar los datos que deseas ver.
 
-Aprender a actualizar y eliminar datos: también es importante saber cómo actualizar y eliminar datos de tus tablas, ya sea para corregir errores o para mantener la integridad de tus datos.
++ Aprender a actualizar y eliminar datos: también es importante saber cómo actualizar y eliminar datos de tus tablas, ya sea para corregir errores o para mantener la integridad de tus datos.
 
-Aprender a utilizar funciones y cláusulas adicionales: existen muchas funciones y cláusulas adicionales que puedes utilizar en tus consultas SQL para realizar cálculos, agrupar datos y mucho más.
++ Aprender a utilizar funciones y cláusulas adicionales: existen muchas funciones y cláusulas adicionales que puedes utilizar en tus consultas SQL para realizar cálculos, agrupar datos y mucho más.
 
 A continuación, te presento un ejemplo de script SQL con comentarios que te ayudarán a entender cada proceso:
 
@@ -67,47 +67,47 @@ Claro, aquí te presento algunos ejemplos de cómo utilizar JOIN, GROUP BY, HAVI
 JOIN:
 
 ##**UT code**
-`-- Supongamos que tenemos dos tablas: "clientes" y "pedidos"
--- La tabla "clientes" tiene las columnas "id", "nombre" y "ciudad"
--- La tabla "pedidos" tiene las columnas "id", "cliente_id" (que hace referencia al ID del cliente en la tabla "clientes"), "producto" y "cantidad"
+  `-- Supongamos que tenemos dos tablas: "clientes" y "pedidos"
+  -- La tabla "clientes" tiene las columnas "id", "nombre" y "ciudad"
+  -- La tabla "pedidos" tiene las columnas "id", "cliente_id" (que hace referencia al ID del cliente en la tabla "clientes"), "producto" y "cantidad"
 
--- Utilizamos INNER JOIN para combinar las tablas "clientes" y "pedidos" por la columna "cliente_id"
--- Esto nos devuelve una lista de todos los pedidos realizados por cada cliente, con el nombre del cliente y la ciudad
-SELECT c.nombre, c.ciudad, p.producto, p.cantidad
-FROM clientes c INNER JOIN pedidos p
-ON c.id = p.cliente_id;
-GROUP BY y HAVING:`
-
-##**UT code**
-`-- Utilizamos GROUP BY para agrupar los resultados de la consulta por la columna "ciudad"
--- Utilizamos SUM para calcular la cantidad total de cada producto vendido en cada ciudad
--- Utilizamos HAVING para filtrar sólo las ciudades donde se hayan vendido más de 100 unidades de un producto determinado
-SELECT ciudad, SUM(cantidad) AS 'unidades_vendidas'
-FROM pedidos
-WHERE producto = 'Producto X'
-GROUP BY ciudad
-HAVING SUM(cantidad) > 100;
-Subconsultas:`
+  -- Utilizamos INNER JOIN para combinar las tablas "clientes" y "pedidos" por la columna "cliente_id"
+  -- Esto nos devuelve una lista de todos los pedidos realizados por cada cliente, con el nombre del cliente y la ciudad
+  SELECT c.nombre, c.ciudad, p.producto, p.cantidad
+  FROM clientes c INNER JOIN pedidos p
+  ON c.id = p.cliente_id;
+  GROUP BY y HAVING:`
 
 ##**UT code**
-`-- Utilizamos una subconsulta para seleccionar los clientes que hayan realizado más de un pedido
--- La subconsulta cuenta el número de pedidos realizados por cada cliente y devuelve sólo aquellos con una cuenta mayor a 1
-SELECT nombre
-FROM clientes
-WHERE (SELECT COUNT(*) FROM pedidos WHERE pedidos.cliente_id = clientes.id) > 1;
-Índices:`
+  `-- Utilizamos GROUP BY para agrupar los resultados de la consulta por la columna "ciudad"
+  -- Utilizamos SUM para calcular la cantidad total de cada producto vendido en cada ciudad
+  -- Utilizamos HAVING para filtrar sólo las ciudades donde se hayan vendido más de 100 unidades de un producto determinado
+  SELECT ciudad, SUM(cantidad) AS 'unidades_vendidas'
+  FROM pedidos
+  WHERE producto = 'Producto X'
+  GROUP BY ciudad
+  HAVING SUM(cantidad) > 100;
+  Subconsultas:`
 
 ##**UT code**
-`-- Creamos un índice en la tabla "clientes" utilizando la columna "nombre" como clave
-CREATE INDEX nombre_idx ON clientes (nombre);
-
--- Utilizamos la cláusula USE INDEX para forzar el uso del índice "nombre_idx" en la consulta
-SELECT * FROM clientes USE INDEX (nombre_idx) WHERE nombre = 'Juan';
-Transacciones:`
+  `-- Utilizamos una subconsulta para seleccionar los clientes que hayan realizado más de un pedido
+  -- La subconsulta cuenta el número de pedidos realizados por cada cliente y devuelve sólo aquellos con una cuenta mayor a 1
+  SELECT nombre
+  FROM clientes
+  WHERE (SELECT COUNT(*) FROM pedidos WHERE pedidos.cliente_id = clientes.id) > 1;
+  Índices:`
 
 ##**UT code**
-`-- Iniciamos una transacción
-BEGIN TRANSACTION;`
+  `-- Creamos un índice en la tabla "clientes" utilizando la columna "nombre" como clave
+  CREATE INDEX nombre_idx ON clientes (nombre);
+
+  -- Utilizamos la cláusula USE INDEX para forzar el uso del índice "nombre_idx" en la consulta
+  SELECT * FROM clientes USE INDEX (nombre_idx) WHERE nombre = 'Juan';
+  Transacciones:`
+
+##**UT code**
+  `-- Iniciamos una transacción
+  BEGIN TRANSACTION;`
 
 ___
 no me quedo claro como utilizar TRANSACTION, me lo puedes repetir por favor
@@ -147,35 +147,36 @@ ___
 cual seria la manera adecuada de abordar este ejemplo desde una perspectiva de arquitectura enfocada en rendimiento bajo el framework de javascript preact, puedes mostrarme en un script este componente de validación de compra teniendo en cuenta lo que hemos conversado
 En general, la manera adecuada de abordar este tipo de problemas de integridad de datos en aplicaciones web depende en gran medida de la arquitectura y las herramientas utilizadas. Sin embargo, aquí te presento un ejemplo de cómo podrías crear un componente de validación de compra utilizando el framework de JavaScript Preact y teniendo en cuenta lo que hemos conversado sobre transacciones en SQL:
 
-`import { h, Component } from 'preact';
-import axios from 'axios';
+   `import { h, Component } from 'preact';
+    import axios from 'axios';
 
-class ValidarCompra extends Component {
-  validarCompra = () => {
-    // Iniciamos una transacción
-    axios.post('/api/iniciar-transaccion');
+    class ValidarCompra extends Component {
+      validarCompra = () => {
+        // Iniciamos una transacción
+        axios.post('/api/iniciar-transaccion');
 
-    // Realizamos algunas operaciones en la base de datos
-    axios.patch('/api/clientes/1', { saldo: saldo - 100 });
-    axios.post('/api/compras', { cliente_id: 1, producto: 'Producto X', cantidad: 1, precio: 100 });
+        // Realizamos algunas operaciones en la base de datos
+        axios.patch('/api/clientes/1', { saldo: saldo - 100 });
+        axios.post('/api/compras', { cliente_id: 1, producto: 'Producto X', cantidad: 1, precio: 100 });
 
-    // Si todas las operaciones se realizan correctamente, confirmamos la transacción
-    axios.post('/api/confirmar-transaccion');
+        // Si todas las operaciones se realizan correctamente, confirmamos la transacción
+        axios.post('/api/confirmar-transaccion');
 
-    // Si alguna de las operaciones falla, cancelamos la transacción y mostramos un mensaje de error al usuario
-    axios.post('/api/cancelar-transaccion').catch(() => {
-      alert('La compra no se pudo realizar');
-    });
-  }
+        // Si alguna de las operaciones falla, cancelamos la transacción y mostramos un mensaje de error al usuario
+        axios.post('/api/cancelar-transaccion').catch(() => {
+          alert('La compra no se pudo realizar');
+        });
+      }
 
-  render() {
-    return (
-      <button onClick={this.validarCompra}>Validar compra</button>
-    );
-  }
-}`
+      render() {
+        return (
+          <button onClick={this.validarCompra}>Validar compra</button>
+        );
+      }
+    }
 
-export default ValidarCompra;
+    export default ValidarCompra;`
+
 Este componente hace uso de la librería de cliente HTTP Axios para realizar solicitudes HTTP a una API que se encarga de manejar las transacciones en la base de datos. En este ejemplo, se envían tres solicitudes HTTP a la API: una para iniciar la transacción, otra para confirmarla y otra para cancelarla en caso de fallo.
 
 Es importante tener en cuenta que este es sólo un ejemplo y que la implementación final podría variar según tus necesidades específicas. Por ejemplo, podrías utilizar una librería diferente para realizar solicitudes HTTP o podrías utilizar un enfoque diferente para manejar las transacciones.
