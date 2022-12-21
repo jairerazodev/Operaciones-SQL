@@ -15,30 +15,30 @@ hola esta practica muestra una ruta sugerida para aprender la sintaxis básica d
 
 A continuación, te presento un ejemplo de script SQL con comentarios que te ayudarán a entender cada proceso:
 
-## **Creación de tablas**
-`-- Crea una tabla llamada "clientes" con dos columnas: "nombre" y "ciudad"
-CREATE TABLE clientes (nombre VARCHAR(50), ciudad VARCHAR(50));
+### Creación de tablas
+  -- Crea una tabla llamada "clientes" con dos columnas: "nombre" y "ciudad"
+  CREATE TABLE clientes (nombre VARCHAR(50), ciudad VARCHAR(50));
 
--- Inserta algunos datos en la tabla "clientes"
-INSERT INTO clientes (nombre, ciudad) VALUES
+  -- Inserta algunos datos en la tabla "clientes"
+  INSERT INTO clientes (nombre, ciudad) VALUES
   ('Juan', 'Madrid'),
   ('Ana', 'Barcelona'),
   ('Pablo', 'Sevilla');
 
--- Selecciona todos los datos de la tabla "clientes"
-SELECT * FROM clientes;
+  -- Selecciona todos los datos de la tabla "clientes"
+  SELECT * FROM clientes;
 
--- Selecciona sólo el nombre de los clientes de Barcelona
-SELECT nombre FROM clientes WHERE ciudad = 'Barcelona';
+  -- Selecciona sólo el nombre de los clientes de Barcelona
+  SELECT nombre FROM clientes WHERE ciudad = 'Barcelona';
 
--- Actualiza la ciudad de Juan a Valencia
-UPDATE clientes SET ciudad = 'Valencia' WHERE nombre = 'Juan';
+  -- Actualiza la ciudad de Juan a Valencia
+  UPDATE clientes SET ciudad = 'Valencia' WHERE nombre = 'Juan';
 
--- Elimina a Pablo de la tabla "clientes"
-DELETE FROM clientes WHERE nombre = 'Pablo';
+  -- Elimina a Pablo de la tabla "clientes"
+  DELETE FROM clientes WHERE nombre = 'Pablo';
 
--- Utiliza una función para contar el número de clientes en la tabla
-SELECT COUNT(*) FROM clientes;`
+  -- Utiliza una función para contar el número de clientes en la tabla
+  SELECT COUNT(*) FROM clientes;
 
 Espero que este ejemplo te ayude a comprender y recordar mejor la sintaxis básica de SQL.
 
