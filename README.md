@@ -42,7 +42,7 @@ A continuación, te presento un ejemplo de script SQL con comentarios que te ayu
 
 Espero que este ejemplo te ayude a comprender y recordar mejor la sintaxis básica de SQL.
 
-#### JOIN, GROUP BY; TRANSACTION
+#### JOIN, GROUP BY, TRANSACTION
 
 Además de las operaciones básicas que mencioné en el primer mensaje (crear tablas, insertar datos, seleccionar y filtrar datos, actualizar y eliminar datos), hay muchas otras cosas que puedes aprender a hacer con SQL en bases de datos relacionales. Algunas de estas operaciones incluyen:
 
