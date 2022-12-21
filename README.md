@@ -15,7 +15,7 @@ hola esta practica muestra una ruta sugerida para aprender la sintaxis básica d
 
 A continuación, te presento un ejemplo de script SQL con comentarios que te ayudarán a entender cada proceso:
 
-### Creación de tablas
+#### Creación de tablas
     -- Crea una tabla llamada "clientes" con dos columnas: "nombre" y "ciudad"
     CREATE TABLE clientes (nombre VARCHAR(50), ciudad VARCHAR(50));
 
@@ -42,7 +42,8 @@ A continuación, te presento un ejemplo de script SQL con comentarios que te ayu
 
 Espero que este ejemplo te ayude a comprender y recordar mejor la sintaxis básica de SQL.
 
-___
+### JOIN, GROUP BY; TRANSACTION
+
 Además de las operaciones básicas que mencioné en el primer mensaje (crear tablas, insertar datos, seleccionar y filtrar datos, actualizar y eliminar datos), hay muchas otras cosas que puedes aprender a hacer con SQL en bases de datos relacionales. Algunas de estas operaciones incluyen:
 
 + JOIN: con JOIN puedes combinar datos de varias tablas en una sola consulta. Por ejemplo, si tienes una tabla de clientes y otra tabla de pedidos, puedes utilizar JOIN para obtener una lista de todos los pedidos realizados por cada cliente.
@@ -55,10 +56,9 @@ Además de las operaciones básicas que mencioné en el primer mensaje (crear ta
 
 + Transacciones: las transacciones son una serie de operaciones que se deben realizar juntas para garantizar la integridad de los datos. Con SQL, puedes utilizar las sentencias BEGIN TRANSACTION, COMMIT y ROLLBACK para controlar el proceso de transacciones.
 
-___
 Aquí te presento algunos ejemplos de cómo utilizar JOIN, GROUP BY, HAVING, subconsultas, índices y transacciones en SQL:
 
-### JOIN
+#### JOIN
     -- Supongamos que tenemos dos tablas: "clientes" y "pedidos"
     -- La tabla "clientes" tiene las columnas "id", "nombre" y "ciudad"
     -- La tabla "pedidos" tiene las columnas "id", "cliente_id" (que hace referencia al ID del cliente en la tabla "clientes"), "producto" y "cantidad"
@@ -70,7 +70,7 @@ Aquí te presento algunos ejemplos de cómo utilizar JOIN, GROUP BY, HAVING, sub
     ON c.id = p.cliente_id;
     GROUP BY y HAVING:
 
-## GROUP BY
+#### GROUP BY
     -- Utilizamos GROUP BY para agrupar los resultados de la consulta por la columna "ciudad"
     -- Utilizamos SUM para calcular la cantidad total de cada producto vendido en cada ciudad
     -- Utilizamos HAVING para filtrar sólo las ciudades donde se hayan vendido más de 100 unidades de un producto determinado
@@ -80,7 +80,7 @@ Aquí te presento algunos ejemplos de cómo utilizar JOIN, GROUP BY, HAVING, sub
     GROUP BY ciudad
     HAVING SUM(cantidad) > 100;
 
-## Subconsulta
+#### Subconsulta
     -- Utilizamos una subconsulta para seleccionar los clientes que hayan realizado más de un pedido
     -- La subconsulta cuenta el número de pedidos realizados por cada cliente y devuelve sólo aquellos con una cuenta mayor a 1
     SELECT nombre
@@ -88,37 +88,38 @@ Aquí te presento algunos ejemplos de cómo utilizar JOIN, GROUP BY, HAVING, sub
     WHERE (SELECT COUNT(*) FROM pedidos WHERE pedidos.cliente_id = clientes.id) > 1;
 
 
-##**Índice**
-  `-- Creamos un índice en la tabla "clientes" utilizando la columna "nombre" como clave
-  CREATE INDEX nombre_idx ON clientes (nombre);
+#### Índice
+    -- Creamos un índice en la tabla "clientes" utilizando la columna "nombre" como clave
+    CREATE INDEX nombre_idx ON clientes (nombre);
 
-  -- Utilizamos la cláusula USE INDEX para forzar el uso del índice "nombre_idx" en la consulta
-  SELECT * FROM clientes USE INDEX (nombre_idx) WHERE nombre = 'Juan';
-  Transacciones:`
+    -- Utilizamos la cláusula USE INDEX para forzar el uso del índice "nombre_idx" en la consulta
+    SELECT * FROM clientes USE INDEX (nombre_idx) WHERE nombre = 'Juan';
+    Transacciones:
 
-##**TRANSACTION**
-  `-- Iniciamos una transacción
-  BEGIN TRANSACTION;`
+#### TRANSACTION
+    -- Iniciamos una transacción
+    BEGIN TRANSACTION;
 
-Te explicaré cómo utilizar transacciones en SQL, ya que vale la pena entrar en detalle.
+Te explicaré cómo utilizar TRANSACTION ó transacciones en SQL, ya que vale la pena entrar en detalle.
 
 Una transacción es una serie de operaciones que se deben realizar juntas para garantizar la integridad de los datos. Por ejemplo, si estás realizando una compra en una tienda en línea, es importante que la operación de descontar el dinero de tu cuenta y la de añadir el producto a tu carrito se realicen juntas, para asegurar que ninguna de las dos falla. Si alguna de las operaciones falla, entonces se cancela la transacción y los datos se mantienen sin cambios.
 
 En SQL, puedes utilizar las sentencias BEGIN TRANSACTION, COMMIT y ROLLBACK para controlar el proceso de transacciones. La sentencia BEGIN TRANSACTION inicia una transacción, la sentencia COMMIT confirma todas las operaciones realizadas en la transacción y las guarda en la base de datos, mientras que la sentencia ROLLBACK cancela todas las operaciones realizadas en la transacción y restaura los datos a su estado anterior.
 
 Aquí te presento un ejemplo de cómo utilizar transacciones en SQL:
-`-- Iniciamos una transacción
-BEGIN TRANSACTION;
 
--- Realizamos algunas operaciones en la base de datos
-UPDATE clientes SET saldo = saldo - 100 WHERE nombre = 'Juan';
-INSERT INTO compras (cliente_id, producto, cantidad, precio) VALUES (1, 'Producto X', 1, 100);
+    -- Iniciamos una transacción
+    BEGIN TRANSACTION;
 
--- Si todas las operaciones se realizan correctamente, confirmamos la transacción
-COMMIT;
+    -- Realizamos algunas operaciones en la base de datos
+    UPDATE clientes SET saldo = saldo - 100 WHERE nombre = 'Juan';
+    INSERT INTO compras (cliente_id, producto, cantidad, precio) VALUES (1, 'Producto X', 1, 100);
 
--- Si alguna de las operaciones falla, cancelamos la transacción y restauramos los datos a su estado anterior
-ROLLBACK;`
+    -- Si todas las operaciones se realizan correctamente, confirmamos la transacción
+    COMMIT;
+
+    -- Si alguna de las operaciones falla, cancelamos la transacción y restauramos los datos a su estado anterior
+    ROLLBACK;
 
 > En el ejemplo que te di anteriormente, si alguna de las operaciones realizadas en la transacción falla, entonces se cancela la transacción y se restauran los datos a su estado anterior.
 
@@ -126,7 +127,6 @@ ROLLBACK;`
 
 > Es importante tener en cuenta que las transacciones son una herramienta muy útil para garantizar la integridad de los datos en las bases de datos, pero también pueden afectar el rendimiento si se utilizan de manera inadecuada. Por lo tanto, es importante utilizarlas de manera adecuada y sólo cuando sean necesarias.
 
-___ 
 En general, la manera adecuada de abordar este tipo de problemas de integridad de datos en aplicaciones web depende en gran medida de la arquitectura y las herramientas utilizadas. Sin embargo, aquí te presento un ejemplo de cómo podrías crear un componente de validación de compra utilizando el framework de JavaScript Preact y teniendo en cuenta lo expuesto sobre transacciones en SQL:
 
     import { h, Component } from 'preact';
