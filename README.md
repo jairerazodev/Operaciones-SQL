@@ -127,7 +127,7 @@ Aquí te presento un ejemplo de cómo utilizar transacciones en SQL:
 
 > Es importante tener en cuenta que las transacciones son una herramienta muy útil para garantizar la integridad de los datos en las bases de datos, pero también pueden afectar el rendimiento si se utilizan de manera inadecuada. Por lo tanto, es importante utilizarlas de manera adecuada y sólo cuando sean necesarias.
 
-#### Caso practico con preact
+### Caso practico con preact
 
 En general, la manera adecuada de abordar este tipo de problemas de integridad de datos en aplicaciones web depende en gran medida de la arquitectura y las herramientas utilizadas. Sin embargo, aquí te presento un ejemplo de cómo podrías crear un componente de validación de compra utilizando el framework de JavaScript Preact y teniendo en cuenta lo expuesto sobre transacciones en SQL:
 
